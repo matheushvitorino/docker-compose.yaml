@@ -5,15 +5,15 @@ version: "3.8"
       deploy:
         replicas: 8
         placement:
-          constraints: [node.role==qorkerl
+          constraints: [node.role==workerl
       ports:
         - "8008:88"
   Visualizer:
-  image: dockersampless/visualizer:stable
-  ports:
-    - "8888:8080"
-  volunes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-  deploy: 
-    placement:
-      constraints: [ node.role == manager ]
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8888:8080"
+    volunes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy: 
+      placement:
+        constraints: [ node.role == manager ]
