@@ -5,7 +5,7 @@ services:
       replicas: 6
       placement:
         constraints: [node.role==worker]
-      ports: 
+    ports: 
         - "5000:5000"
   visualizer:
     image: dockersamples/visualizer:stable
