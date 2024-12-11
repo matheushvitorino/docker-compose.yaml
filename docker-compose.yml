@@ -1,23 +1,19 @@
-version: '3.8'
-
-services:
-  flask-app:
-    image: matheusvl/aula_docker:latest
-    deploy:
-      replicas: 3  # Número de réplicas para escalar a aplicação
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 512M
-      placement:
-        constraints:
-          - node.role == worker  # Certifique-se de que as réplicas rodem em nós workers
-    ports:
-      - "5000:5000"  # Mapeia a porta 5000 para o host
-    environment:
-      - FLASK_APP=app.py
-
-networks:
-  default:
-    external:
-      name: swarm-net
+version: "3.8"
+  services:
+    site:
+      image: nginx
+      deploy:
+        replicas: 8
+        placement:
+          constraints: [node.role==qorkerl
+      ports:
+        - "8008:88"
+  Visualizer:
+  image: dockersampless/visualizer:stable
+  ports:
+    - "8888:8080"
+  volunes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+  deploy: 
+    placement:
+      constraints: [ node.role == manager ]
