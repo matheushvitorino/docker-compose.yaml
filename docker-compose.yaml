@@ -4,7 +4,7 @@ services:
     deploy:
       replicas: 6
       placement:
-        constraits: [node.role==worker]
+        constraints: [node.role==worker]
       ports: 
         - "5000:5000"
   visualizer:
@@ -15,5 +15,5 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
     deploy:
       placement:
-        constraits: [node.role==manager]
+        constraints: [node.role==manager]
 
