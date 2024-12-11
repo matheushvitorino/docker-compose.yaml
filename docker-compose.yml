@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   flask-app:
-    image: <seu_usuario>/<nome_da_imagem>
+    image: matheusvl/aula_docker:latest
     deploy:
       replicas: 3  # Número de réplicas para escalar a aplicação
       resources:
