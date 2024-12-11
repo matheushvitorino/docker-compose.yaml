@@ -5,8 +5,8 @@ services:
     image: nginx
     deploy:
       replicas: 3
-      placement:  # Corrigido de placements para placement
-        constraints: [node.role==worker]  # Sem o "s" no final de "placement"
+      placement:  
+        constraints: [node.role==worker] 
     ports:
       - "8000:80"
       
@@ -17,5 +17,5 @@ services:
     volumes:
       - "var/run/docker.sock:/var/run/docker.sock"
     deploy:
-      placement:  # Corrigido aqui também
-        constraints: [node.role==manager]  # Sem o "s" no final de "placement"
+      placement: 
+        constraints: [node.role==manager] 
