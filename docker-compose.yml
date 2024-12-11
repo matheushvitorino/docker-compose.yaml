@@ -1,21 +1,21 @@
 version: "3.8"
 
-
 services:
   site:
     image: nginx
     deploy:
       replicas: 3
-      placements:
-        constraints: [node.role==worker]
+      placement:  # Corrigido de placements para placement
+        constraints: [node.role==worker]  # Sem o "s" no final de "placement"
     ports:
-      -  "8000:80"
+      - "8000:80"
+      
   visualizer:
     image: dockersamples/visualizer:stable
     ports:
-      -  "8888:8080"
+      - "8888:8080"
     volumes:
-      -  "var/run/docker.sock:/var/run/docker.sock"
+      - "var/run/docker.sock:/var/run/docker.sock"
     deploy:
-      placement:
-        constraints: [ node.role == manager ]
+      placement:  # Corrigido aqui também
+        constraints: [node.role==manager]  # Sem o "s" no final de "placement"
